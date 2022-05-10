@@ -13,6 +13,11 @@
     <color name="Greyscale_900">#212121</color>
     <color name="Greyscale_200">#EEEEEE</color>
     <color name="Greyscale_500">#9E9E9E</color>
+    <color name="tf_active_bg">#144D5DFA</color>
+    <color name="tf_default_bg">#FAFAFA</color>
+    <color name="disabled_button">#6D79EA</color>
+    <color name="Active_button_shadow">#404D5DFA</color>
 
+    <color name="Greyscale_600">#757575</color>
 
 </resources>

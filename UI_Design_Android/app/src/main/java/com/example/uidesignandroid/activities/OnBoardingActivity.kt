@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.example.uidesignandroid.R
+import com.example.uidesignandroid.activities.authentication.SignInOptionsActivity
 import com.example.uidesignandroid.adapters.OnBoardingAdapter
 import com.example.uidesignandroid.databinding.ActivityOnboardingBinding
 import com.example.uidesignandroid.models.OnBoardingItem
@@ -44,13 +45,13 @@ class OnBoardingActivity : AppCompatActivity() {
             if (onBoardingViewPager.getCurrentItem() + 1 < onBoardingAdapter.itemCount) {
                 onBoardingViewPager.setCurrentItem(onBoardingViewPager.getCurrentItem() + 1)
             } else {
-                startActivity(Intent(this, HomeActivity::class.java))
+                startActivity(Intent(this, SignInOptionsActivity::class.java))
                 finish()
             }
         }
 
         binding.btnSkip.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, SignInOptionsActivity::class.java))
             finish()
         }
     }

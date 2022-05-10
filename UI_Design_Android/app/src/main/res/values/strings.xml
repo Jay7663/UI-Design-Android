@@ -7,8 +7,11 @@
     <string name="continue_with_facebook">Continue with Facebook</string>
     <string name="let_s_you_in">Let’s you in</string>
     <string name="enter_password">Enter password</string>
-    <string name="don_t_have_an_account">Don’t have an account? <font color='#4D5DFA'>Sign up</font></string>
     <string name="sign_up">Sign up</string>
+    <string name="don_t_have_an_account">Don’t have an account? Sign up</string>
+    <string name="already_have_an_account">Already have an account? Sign in</string>
+    <string name="create_your_account">Create your Account</string>
+    <string name="email">Email</string>
     <string name="welcome_to">Welcome to 👋</string>
     <string name="parkir">Parkir</string>
     <string name="tag_line">The best parking app of the century for all people in the world.</string>
@@ -21,6 +24,35 @@
     <string name="frame2_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="frame3_title">Extend Parking Time As You Need</string>
     <string name="frame3_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="remember_me">Remember me</string>
+    <string name="or_continue_with">or continue with</string>
+    <string name="password">Password</string>
+    <string name="login_to_your_account">Login to your Account</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forgot_the_password">Forgot the password?</string>
+    <string name="forgot_password_options_description">Select which contact details should we use to reset your password</string>
+    <string name="forgot_password_continue">Continue</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="otp_information">Code has been send to +1 111 ******99</string>
+    <string name="resend_code_in">Resend code in</string>
+    <string name="sent_code_again">Sent code again</string>
+    <string name="verify">Verify</string>
+    <string name="create_new_password">Create New Password</string>
+    <string name="create_your_new_password">Create Your New Password</string>
+    <string name="validation_method_required_field">Required Field</string>
+    <string name="validation_message_incorrect_email">Please provide correct Email</string>
+    <string name="validation_message_empty_password">Empty Password</string>
+    <string name="validation_message_need_4_char_password">Need at least 4 characters</string>
+    <string name="sign_up_success">SignUp Success</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="your_account_is_ready_to_use">Your account is ready to use</string>
+    <string name="go_to_homepage">Go to Homepage</string>
+    <string name="via_sms">via SMS:</string>
+    <string name="_1_111_99">+1 111 ******99</string>
+    <string name="via_email">via Email:</string>
+    <string name="and_ey_yourdomain_com">and***ey@yourdomain.com</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="success">Success</string>
 
 
 </resources>
