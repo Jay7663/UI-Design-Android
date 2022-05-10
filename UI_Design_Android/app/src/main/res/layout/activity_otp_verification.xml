@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.authentication.OtpVerificationActivity">
+
+    <include
+        android:id="@+id/customToolbar"
+        layout="@layout/custom_toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvInformation"
+        style="@style/RegularFontTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="@dimen/_46sdp"
+        android:gravity="center"
+        android:text="@string/otp_information"
+        app:layout_constraintBottom_toTopOf="@+id/etDigit1" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etDigit1"
+        style="@style/EditTextOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/etDigit2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInformation"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etDigit2"
+        style="@style/EditTextOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        app:layout_constraintEnd_toStartOf="@+id/etDigit3"
+        app:layout_constraintStart_toEndOf="@+id/etDigit1"
+        app:layout_constraintTop_toTopOf="@+id/etDigit1" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etDigit3"
+        style="@style/EditTextOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_input"
+        android:imeOptions="actionNext"
+        app:layout_constraintEnd_toStartOf="@+id/etDigit4"
+        app:layout_constraintStart_toEndOf="@+id/etDigit2"
+        app:layout_constraintTop_toTopOf="@+id/etDigit1" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etDigit4"
+        style="@style/EditTextOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_input"
+        android:imeOptions="actionDone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etDigit3"
+        app:layout_constraintTop_toTopOf="@+id/etDigit1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCounter"
+        style="@style/TextViewWithLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="@dimen/_46sdp"
+        android:gravity="center"
+        android:text="@string/resend_code_in"
+        app:layout_constraintTop_toBottomOf="@+id/etDigit1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnVerify"
+        style="@style/CustomPrimaryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_19sdp"
+        android:layout_marginTop="@dimen/_150sdp"
+        android:layout_marginBottom="@dimen/_35sdp"
+        android:text="@string/verify"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCounter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

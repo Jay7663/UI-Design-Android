@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UIDesignAndroid">
         <activity
+            android:name=".activities.authentication.CreateNewPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.authentication.OtpVerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.authentication.ForgotPasswordOptionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.authentication.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.authentication.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.authentication.SignInOptionsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.WelcomeActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
