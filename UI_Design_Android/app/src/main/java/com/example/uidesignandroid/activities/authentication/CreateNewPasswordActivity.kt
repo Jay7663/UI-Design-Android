@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.example.uidesignandroid.R
-import com.example.uidesignandroid.activities.HomeActivity
+import com.example.uidesignandroid.activities.homescreen.HomeActivity
 import com.example.uidesignandroid.databinding.ActivityCreateNewPasswordBinding
 import com.example.uidesignandroid.utils.Constants.SEVENTY
 import com.example.uidesignandroid.utils.Constants.TWO

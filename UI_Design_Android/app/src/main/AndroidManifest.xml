@@ -32,7 +32,7 @@
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.HomeActivity"
+            android:name=".activities.homescreen.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".activities.OnBoardingActivity"
