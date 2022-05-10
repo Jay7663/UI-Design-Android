@@ -5,6 +5,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.MotionEvent
+import android.view.View
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.lifecycleScope
+import com.example.uidesignandroid.R
+import com.example.uidesignandroid.activities.homescreen.HomeActivity
+import com.example.uidesignandroid.databinding.ActivitySignInBinding
+import com.example.uidesignandroid.models.SignInResponse
+import com.example.uidesignandroid.utils.addSpannableString
+import com.example.uidesignandroid.utils.isValidEmail
+import com.example.uidesignandroid.utils.passwordVisibility
+import com.example.uidesignandroid.viewmodels.SignInViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
@@ -16,6 +32,7 @@ class SignInActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignInBinding
     private var isHiddenPassword = true
+    private val signInViewModel: SignInViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +41,14 @@ class SignInActivity : AppCompatActivity() {
 
         binding.btnSignIn.setOnClickListener {
             if (validateInputs()) {
-                Toast.makeText(this, "Success...", Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.VISIBLE
+                lifecycleScope.launch(Dispatchers.IO) {
+                    signInViewModel.logIn(
+                        binding.etEmail.text.toString(),
+                        binding.etPassword.text.toString(),
+                        SignInResponse::class.java
+                    )
+                }
             }
         }
 
@@ -48,7 +72,25 @@ class SignInActivity : AppCompatActivity() {
 
         putSpannableStringInTV()
         setUpToggle()
+        setUpViewModelObservers()
 
+    }
+
+    private fun setUpViewModelObservers() {
+        signInViewModel.apply {
+            isValidUser.observe(this@SignInActivity) {
+                if (it) {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(this@SignInActivity, "Success", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+                    finish()
+                }
+            }
+            errorMessage.observe(this@SignInActivity) {
+                binding.progressBar.visibility = View.GONE
+                Toast.makeText(this@SignInActivity, it, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")

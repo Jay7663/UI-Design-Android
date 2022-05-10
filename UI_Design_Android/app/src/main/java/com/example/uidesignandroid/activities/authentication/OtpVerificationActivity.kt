@@ -5,6 +5,14 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.os.CountDownTimer
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import com.example.uidesignandroid.R
 import com.example.uidesignandroid.databinding.ActivityOtpVerificationBinding

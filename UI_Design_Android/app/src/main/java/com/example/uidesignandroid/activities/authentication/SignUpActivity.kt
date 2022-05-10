@@ -5,6 +5,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.MotionEvent
+import android.view.View
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.lifecycleScope
+import com.example.uidesignandroid.R
+import com.example.uidesignandroid.activities.homescreen.HomeActivity
+import com.example.uidesignandroid.databinding.ActivitySignUpBinding
+import com.example.uidesignandroid.interfaces.ApiCallsInterface
+import com.example.uidesignandroid.models.SignUpUserResponse
+import com.example.uidesignandroid.utils.addSpannableString
+import com.example.uidesignandroid.utils.isValidEmail
+import com.example.uidesignandroid.utils.passwordVisibility
+import com.example.uidesignandroid.viewmodels.SignUpViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
@@ -16,6 +33,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
     private var isHiddenPassword = true
+    private val signUpViewModel: SignUpViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +43,14 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.btnSignUp.setOnClickListener {
             if (validateInputs()) {
-                Toast.makeText(this, getString(R.string.sign_up_success), Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.VISIBLE
+                lifecycleScope.launch(Dispatchers.IO) {
+                    signUpViewModel.register(
+                        binding.etEmail.text.toString(),
+                        binding.etPassword.text.toString(),
+                        SignUpUserResponse::class.java
+                    )
+                }
             }
         }
 
@@ -45,6 +70,24 @@ class SignUpActivity : AppCompatActivity() {
 
         tvSignInCreateSpannable()
         setUpToggle()
+        setUpViewModelObservers()
+    }
+
+    private fun setUpViewModelObservers() {
+        signUpViewModel.apply {
+            isValidUser.observe(this@SignUpActivity) {
+                if (it) {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(this@SignUpActivity, "Success", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@SignUpActivity, HomeActivity::class.java))
+                    finish()
+                }
+            }
+            errorMessage.observe(this@SignUpActivity) {
+                binding.progressBar.visibility = View.GONE
+                Toast.makeText(this@SignUpActivity, it, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")

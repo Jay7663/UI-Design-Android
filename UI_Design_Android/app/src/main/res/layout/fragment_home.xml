@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_map"
+    tools:context=".fragments.HomeFragment">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_19sdp"
+        android:background="@drawable/ic_map_forground"
+        app:layout_constraintBottom_toBottomOf="@+id/iBtnLocate"
+        app:layout_constraintTop_toTopOf="@+id/iBtnNotification" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/iBtnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_search"
+        app:circularflow_defaultRadius="@dimen/_100sdp"
+        app:layout_constraintEnd_toStartOf="@+id/iBtnNotification"
+        app:layout_constraintTop_toTopOf="@+id/iBtnNotification" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/iBtnNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_notification"
+        app:circularflow_defaultRadius="@dimen/_100sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/iBtnLocate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_18sdp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_floating_button"
+        app:circularflow_defaultRadius="@dimen/_100sdp"
+        app:layout_constraintBottom_toTopOf="@+id/rvLocations"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLocations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/custom_recycler_item_location" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
