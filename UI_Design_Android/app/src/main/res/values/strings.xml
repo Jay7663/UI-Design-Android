@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">UI Design Android</string>
+    <string name="sign_in_with_password">Sign in with password</string>
+    <string name="or">or</string>
+    <string name="continue_with_apple">Continue with Apple</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="let_s_you_in">Let’s you in</string>
+    <string name="enter_password">Enter password</string>
+    <string name="don_t_have_an_account">Don’t have an account? <font color='#4D5DFA'>Sign up</font></string>
+    <string name="sign_up">Sign up</string>
+    <string name="welcome_to">Welcome to 👋</string>
+    <string name="parkir">Parkir</string>
+    <string name="tag_line">The best parking app of the century for all people in the world.</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="get_started">Get Started</string>
+    <string name="frame1_title">Find Parking Places Around You Easily</string>
+    <string name="frame1_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="frame2_title"><![CDATA[Book and Pay Parking Quickly & Safely]]></string>
+    <string name="frame2_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="frame3_title">Extend Parking Time As You Need</string>
+    <string name="frame3_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+
+
+</resources>
