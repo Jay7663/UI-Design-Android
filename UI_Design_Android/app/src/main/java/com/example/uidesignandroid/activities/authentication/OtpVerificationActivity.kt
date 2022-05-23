@@ -4,19 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.KeyEvent
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.example.uidesignandroid.R
+import com.example.uidesignandroid.base.BaseActivity
 import com.example.uidesignandroid.databinding.ActivityOtpVerificationBinding
 import com.example.uidesignandroid.utils.Constants.FIFTEEN
 import com.example.uidesignandroid.utils.Constants.SEVENTEEN
 import com.example.uidesignandroid.utils.Constants.SIXTY_THOUSAND
 import com.example.uidesignandroid.utils.Constants.THOUSAND
 import com.example.uidesignandroid.utils.addSpannableString
-import com.example.uidesignandroid.utils.checkForNull
-import com.example.uidesignandroid.utils.hideSoftKeyboard
 
-class OtpVerificationActivity : AppCompatActivity() {
+class OtpVerificationActivity : BaseActivity() {
 
     private lateinit var binding: ActivityOtpVerificationBinding
     private var timer = object : CountDownTimer(SIXTY_THOUSAND, THOUSAND) {

@@ -1,3 +1,3 @@
 package com.example.uidesignandroid.models
 
-data class OnBoardingItem(var image: Int, var title: String, var description: String)
+data class OnBoardingItem(val image: Int, val title: String, val description: String)

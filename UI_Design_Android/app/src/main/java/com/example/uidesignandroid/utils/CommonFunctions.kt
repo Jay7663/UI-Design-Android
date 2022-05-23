@@ -7,54 +7,21 @@ import android.text.TextPaint
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.text.style.ClickableSpan
-import android.util.Patterns
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.uidesignandroid.R
 
 
-fun Activity.checkForNull(vararg fields: EditText): Boolean {
-    for (editText in fields) {
-        if (editText.text.trim().isEmpty()) {
-            editText.isFocusable = true
-            editText.error = getString(R.string.validation_method_required_field)
-            editText.requestFocus()
-            return true
-        }
-    }
-    return false
-}
-
-fun Activity.isValidEmail(editText: EditText): Boolean {
-    if (!Patterns.EMAIL_ADDRESS.matcher(editText.text).matches()) {
-        editText.isFocusable = true
-        editText.error = getString(R.string.validation_message_incorrect_email)
-        editText.requestFocus()
-        return false
-    }
-    return true
-}
-
-fun Activity.isValidPassword(editText: EditText): Boolean {
-    if (editText.text.length < 4) {
-        editText.isFocusable = true
-        editText.error = getString(R.string.validation_message_need_4_char_password)
-        editText.requestFocus()
-        return false
-    }
-    return true
-}
-
-fun Activity.hideSoftKeyboard() {
-    currentFocus.let {
-        val inputMethodManager: InputMethodManager =
-            this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        if (inputMethodManager.isAcceptingText) {
-            inputMethodManager.hideSoftInputFromWindow(it?.windowToken, 0)
-        }
-    }
+fun showAlert(context: Activity, title: String, message: String) {
+    val alertBuilder = AlertDialog.Builder(context)
+    alertBuilder
+        .setTitle(title)
+        .setMessage(message)
+        .setCancelable(true).setIcon(R.drawable.icon_alert)
+        .setPositiveButton(context.getString(R.string.dismiss)) { dialog, _ -> dialog.dismiss() }
+        .show()
 }
 
 fun EditText.passwordVisibility(isHidden: Boolean) {

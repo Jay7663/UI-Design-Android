@@ -2,11 +2,11 @@ package com.example.uidesignandroid.activities.authentication
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.uidesignandroid.R
+import com.example.uidesignandroid.base.BaseActivity
 import com.example.uidesignandroid.databinding.ActivityForgotPasswordOptionsBinding
 
-class ForgotPasswordOptionsActivity : AppCompatActivity() {
+class ForgotPasswordOptionsActivity : BaseActivity() {
 
     private lateinit var binding: ActivityForgotPasswordOptionsBinding
 

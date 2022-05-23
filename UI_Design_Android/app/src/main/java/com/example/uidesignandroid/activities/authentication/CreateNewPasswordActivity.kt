@@ -6,19 +6,17 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.example.uidesignandroid.R
 import com.example.uidesignandroid.activities.homescreen.HomeActivity
+import com.example.uidesignandroid.base.BaseActivity
 import com.example.uidesignandroid.databinding.ActivityCreateNewPasswordBinding
 import com.example.uidesignandroid.utils.Constants.SEVENTY
 import com.example.uidesignandroid.utils.Constants.TWO
 import com.example.uidesignandroid.utils.Constants.ZERO
-import com.example.uidesignandroid.utils.checkForNull
-import com.example.uidesignandroid.utils.isValidPassword
 import com.example.uidesignandroid.utils.passwordVisibility
 
-class CreateNewPasswordActivity : AppCompatActivity() {
+class CreateNewPasswordActivity : BaseActivity() {
 
     private lateinit var binding: ActivityCreateNewPasswordBinding
     private var builder: AlertDialog? = null

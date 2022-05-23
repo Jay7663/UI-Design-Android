@@ -5,10 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.MotionEvent
+import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
 import com.example.uidesignandroid.R
+import com.example.uidesignandroid.activities.homescreen.HomeActivity
+import com.example.uidesignandroid.base.BaseActivity
 import com.example.uidesignandroid.databinding.ActivitySignInBinding
 import com.example.uidesignandroid.utils.Constants.SEVENTY
 import com.example.uidesignandroid.utils.Constants.THIRTY
@@ -16,15 +19,14 @@ import com.example.uidesignandroid.utils.Constants.TWENTY_THREE
 import com.example.uidesignandroid.utils.Constants.TWO
 import com.example.uidesignandroid.utils.Constants.ZERO
 import com.example.uidesignandroid.utils.addSpannableString
-import com.example.uidesignandroid.utils.checkForNull
-import com.example.uidesignandroid.utils.isValidEmail
-import com.example.uidesignandroid.utils.isValidPassword
 import com.example.uidesignandroid.utils.passwordVisibility
+import com.example.uidesignandroid.viewmodels.SignInViewModel
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : BaseActivity() {
 
     private lateinit var binding: ActivitySignInBinding
     private var isHiddenPassword = true
+    private val signInViewModel: SignInViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +36,18 @@ class SignInActivity : AppCompatActivity() {
         initialSetUp()
         putSpannableStringInTV()
         setUpToggle()
+        setUpViewModelObservers()
     }
 
     private fun initialSetUp() {
         binding.btnSignIn.setOnClickListener {
             if (validateInputs()) {
-                Toast.makeText(this, getString(R.string.success), Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.VISIBLE
+                signInViewModel.signIn(
+                    this,
+                    binding.etEmail.text.toString(),
+                    binding.etPassword.text.toString()
+                )
             }
         }
 
@@ -59,6 +67,16 @@ class SignInActivity : AppCompatActivity() {
         binding.etPassword.isSelected = true
         binding.etPassword.doOnTextChanged { text, _, _, _ ->
             binding.etPassword.isSelected = text.toString().trim().isEmpty()
+        }
+    }
+
+    private fun setUpViewModelObservers() {
+        signInViewModel.isValidUser.observe(this) {
+            binding.progressBar.visibility = View.GONE
+            if (it) {
+                Toast.makeText(this, getString(R.string.user_added), Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, HomeActivity::class.java))
+            }
         }
     }
 
